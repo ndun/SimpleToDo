@@ -37,13 +37,4 @@
         android:onClick="saveEdit"
         android:text="@string/edit_save_button" />
 
-    <Button
-        android:id="@+id/gotoListButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editSaveButton"
-        android:layout_alignBottom="@+id/editSaveButton"
-        android:layout_alignRight="@+id/etEditListItemValue"
-        android:text="@string/goto_list_button" />
-
 </RelativeLayout>

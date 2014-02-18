@@ -24,7 +24,9 @@ import android.widget.Toast;
 
 public class TodoActivity extends Activity {
 
-	private final int REQUEST_CODE = 20;
+	private static final int REQUEST_CODE = 20;
+    private static final Logger logger = Logger.getLogger("TodoActivity");
+
 	ArrayList<String> items;
 	ArrayAdapter<String> itemsAdapter;
 	ListView lvItems;
@@ -106,17 +108,15 @@ public class TodoActivity extends Activity {
     	});
 
     }
-    private static final Logger logger = Logger.getLogger("TodoActivity");
-	@Override
+
+    @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	  // REQUEST_CODE is defined above
 	  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
 	     String newValue = data.getExtras().getString("newValue");
 	     int index = data.getExtras().getInt("index");
 	     String item = itemsAdapter.getItem(index);	     
 	     items.remove(index);
 	     items.add(index, newValue);
-	     logger.info("items: " + items);
 
 	     saveItems();
 	     item = newValue;
